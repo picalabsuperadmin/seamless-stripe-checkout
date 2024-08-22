@@ -9,8 +9,8 @@ import {
   useAddress,
   useContract,
   useNFT,
-} from "@thirdweb-dev/react";
-import { useMagic } from "@thirdweb-dev/react/evm/connectors/magic";
+  useMagic,
+} from "@thirdweb-dev/react";  // 这里的 useMagic 从 @thirdweb-dev/react 中引入
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 import Form from "../components/Form";
@@ -19,7 +19,7 @@ import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   const address = useAddress();
-  const connectWithMagic = useMagic();
+  const connectWithMagic = useMagic();  // 直接使用 useMagic 钩子
   const [email, setEmail] = useState<string>("");
   const { contract } = useContract(EDITION_ADDRESS, "edition");
   const { data: nft } = useNFT(contract, 0);
